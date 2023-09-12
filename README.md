@@ -9,5 +9,5 @@ npm install
 To run:
 
 ```bash
-npm run webpack
+npx webpack
 ```
