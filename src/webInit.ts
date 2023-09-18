@@ -7,11 +7,15 @@ function webInit() {
       <h1>Battleships</h1>
     </header>
     <section>
-      <div id="menu">menu</div>
-      <div id="boards">
-        <div class="players-boards" id="player1"></div>
-        <div class="players-boards" id="player2"></div>
+      <div id="name-entry">
+        <h2>Enter your name</h2>
+        <div id="input-error">
+          <input type="text" id="player-name" required minlength="1">
+          <span id="error"></span>
+        </div>
+        <button id="strat">Start</button>
       </div>
+    
     </section>
     <footer></footer>`;
   if (body) {
@@ -20,19 +24,14 @@ function webInit() {
   } else return false;
 }
 
-function fieldRender(board: string) {
-  const playerBoadr = document.getElementById(board);
-  if (playerBoadr) {
-    for (let index = 0; index < 100; index++) {
-      playerBoadr.appendChild(generateField());
-    }
-  }
-}
+export { webInit };
 
-function generateField() {
-  const field = document.createElement("div");
-  field.classList.add("field");
-  return field;
-}
+// add later board during game
 
-export { webInit, fieldRender };
+// <div id="menu">menu</div>
+//       <div id="boards">
+//         <span id="player1-name"></span>
+//         <span id="player2-name"></span>
+//         <div class="players-boards" id="player1"></div>
+//         <div class="players-boards" id="player2"></div>
+//       </div>

@@ -1,7 +1,9 @@
 interface Ship {
+  cords: number[];
   len: number;
   hits: number;
   sunk: boolean;
+  isShipsSet: boolean;
   isSunk(): void;
   setHit(): void;
   getHits(): number;
@@ -10,9 +12,11 @@ interface Ship {
 
 function createShip(len: number): Ship {
   const ship: Ship = {
+    cords: [],
     len,
     hits: 0,
     sunk: false,
+    isShipsSet: false,
     isSunk() {
       if (this.hits === this.len) this.sunk = true;
     },

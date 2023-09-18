@@ -2,6 +2,7 @@ interface Field {
   id: number;
   field: Element;
   shooted: boolean;
+  ship: boolean;
 }
 
 function createField(id: number, field: Element) {
@@ -9,9 +10,16 @@ function createField(id: number, field: Element) {
     id,
     field,
     shooted: false,
+    ship: false,
   };
 
   return fieldObj;
 }
 
-export { Field, createField };
+function generateField() {
+  const field = document.createElement("div");
+  field.classList.add("field");
+  return field;
+}
+
+export { Field, createField, generateField };

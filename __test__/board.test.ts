@@ -6,5 +6,6 @@ test("create Field", () => {
     id: 1,
     field: expect.any(Element),
     shooted: false,
+    ship: false,
   });
 });
