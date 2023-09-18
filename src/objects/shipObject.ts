@@ -2,7 +2,6 @@ interface Ship {
   len: number;
   hits: number;
   sunk: boolean;
-  setSunk(): void;
   isSunk(): void;
   setHit(): void;
   getHits(): number;
@@ -14,11 +13,8 @@ function createShip(len: number): Ship {
     len,
     hits: 0,
     sunk: false,
-    setSunk() {
-      this.sunk = true;
-    },
     isSunk() {
-      if (this.hits === this.len) this.setSunk();
+      if (this.hits === this.len) this.sunk = true;
     },
     setHit() {
       this.hits += 1;
