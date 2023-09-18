@@ -1,10 +1,17 @@
 interface Field {
   id: number;
-  field: HTMLElement;
+  field: Element;
+  shooted: boolean;
 }
 
 function createField(id: number, field: Element) {
-  return { id, field };
+  const fieldObj: Field = {
+    id,
+    field,
+    shooted: false,
+  };
+
+  return fieldObj;
 }
 
 export { Field, createField };

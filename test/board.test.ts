@@ -5,5 +5,6 @@ test("create Field", () => {
   expect(createField(1, div)).toStrictEqual({
     id: 1,
     field: expect.any(Element),
+    shooted: false,
   });
 });
