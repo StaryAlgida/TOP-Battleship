@@ -46,16 +46,16 @@ function setUpSection(name: string) {
       <div class="players-boards" id="player1"></div>
       <div id="ships">
         <div>
-          <input type="radio" name="ship" class="ships-choose" value="5">5
+          <input type="radio" name="ship" class="ships-choose" id="5" value="5">5
         </div>
         <div>
-          <input type="radio" name="ship" class="ships-choose" value="4">4
+          <input type="radio" name="ship" class="ships-choose" id="4" value="4">4
         </div>
         <div>
-          <input type="radio" name="ship" class="ships-choose"" value="3">3
+          <input type="radio" name="ship" class="ships-choose" id="3" value="3">3
         </div>
         <div>
-          <input type="radio" name="ship" class="ships-choose" value="2">2
+          <input type="radio" name="ship" class="ships-choose" id="2" value="2">2
         </div>
       </div>
     </div>`;
@@ -77,5 +77,5 @@ function makePlayerAndBoard(name: string) {
   Player1 = createPlayer(name);
 
   const container = document.getElementById("player1");
-  if (container) Board1 = createGameBoard(container);
+  if (container) Board1 = createGameBoard(container, true, Player1);
 }

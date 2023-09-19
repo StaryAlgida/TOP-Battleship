@@ -1,11 +1,11 @@
 interface Field {
-  id: number;
+  id: number[];
   field: Element;
   shooted: boolean;
   ship: boolean;
 }
 
-function createField(id: number, field: Element) {
+function createField(id: number[], field: Element) {
   const fieldObj: Field = {
     id,
     field,

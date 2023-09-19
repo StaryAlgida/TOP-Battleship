@@ -5,6 +5,7 @@ interface Player {
   ships: Ship[];
   score: number;
   selectedShip: number;
+  direction: string; //false:x true:y
 }
 
 function createPlayer(name: string): Player {
@@ -13,6 +14,7 @@ function createPlayer(name: string): Player {
     ships: [],
     score: 0,
     selectedShip: 0,
+    direction: "x",
   };
   getShips(player);
 
