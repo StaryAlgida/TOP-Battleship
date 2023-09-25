@@ -13,7 +13,7 @@ function createPlayer(name: string): Player {
     name,
     ships: [],
     score: 0,
-    selectedShip: 0,
+    selectedShip: -1,
     direction: "x",
   };
   getShips(player);
@@ -22,11 +22,11 @@ function createPlayer(name: string): Player {
 }
 
 function getShips(player: Player) {
-  player.ships.push(createShip(5));
-  player.ships.push(createShip(4));
-  player.ships.push(createShip(3));
-  player.ships.push(createShip(3));
-  player.ships.push(createShip(2));
+  player.ships.push(createShip(5, 0));
+  player.ships.push(createShip(4, 1));
+  player.ships.push(createShip(3, 2));
+  player.ships.push(createShip(3, 3));
+  player.ships.push(createShip(2, 4));
 }
 
 export { createPlayer, Player };

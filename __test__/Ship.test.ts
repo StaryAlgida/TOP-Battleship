@@ -3,7 +3,7 @@ import { createShip, Ship } from "../src/objects/shipObject";
 describe("Ship object", () => {
   let shipObject: Ship;
   beforeAll(() => {
-    shipObject = createShip(3);
+    shipObject = createShip(3, 0);
   });
 
   it("len", () => {
@@ -20,7 +20,7 @@ describe("Ship object", () => {
 describe("Ship object finctions", () => {
   let shipObject: Ship;
   beforeEach(() => {
-    shipObject = createShip(2);
+    shipObject = createShip(2, 0);
   });
 
   it("setHit 2", () => {

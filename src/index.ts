@@ -46,16 +46,19 @@ function setUpSection(name: string) {
       <div class="players-boards" id="player1"></div>
       <div id="ships">
         <div>
-          <input type="radio" name="ship" class="ships-choose" id="5" value="5">5
+          <input type="radio" name="ship" class="ships-choose" id="0" value="0">5
         </div>
         <div>
-          <input type="radio" name="ship" class="ships-choose" id="4" value="4">4
+          <input type="radio" name="ship" class="ships-choose" id="1" value="1">4
+        </div>
+        <div>
+          <input type="radio" name="ship" class="ships-choose" id="2" value="2">3
         </div>
         <div>
           <input type="radio" name="ship" class="ships-choose" id="3" value="3">3
         </div>
         <div>
-          <input type="radio" name="ship" class="ships-choose" id="2" value="2">2
+          <input type="radio" name="ship" class="ships-choose" id="4" value="4">2
         </div>
       </div>
     </div>`;

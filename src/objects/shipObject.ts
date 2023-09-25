@@ -1,5 +1,6 @@
 interface Ship {
-  cords: number[];
+  id: number;
+  cords: number[][];
   len: number;
   hits: number;
   sunk: boolean;
@@ -10,9 +11,10 @@ interface Ship {
   getLen(): number;
 }
 
-function createShip(len: number): Ship {
+function createShip(len: number, id: number): Ship {
   const ship: Ship = {
-    cords: [],
+    id,
+    cords: [[], []],
     len,
     hits: 0,
     sunk: false,

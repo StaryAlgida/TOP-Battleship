@@ -9,6 +9,13 @@
 
 .disable {
   pointer-events: none;
+  background-color: #00ad51;
+}
+.pointer {
+  cursor: pointer;
+}
+.not-allowed {
+  cursor: not-allowed;
 }
 
 #content {
