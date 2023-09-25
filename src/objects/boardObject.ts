@@ -1,5 +1,6 @@
 import { Field, createField, generateField } from "./fieldObject";
 import { Player } from "./playerObject";
+import { Ship } from "./shipObject";
 
 interface GameBoard {
   fields: Field[][];
@@ -61,30 +62,28 @@ function fieldMoveListner(fieldOb: Field, board: GameBoard) {
             cords[0].push(fieldOb.id[0]);
             cords[1].push(i);
           }
-          let noBorder: boolean = checkIfNoBorder(cords, board);
-          if (noBorder) {
-            let noShip: boolean = checkIfNoShip(cords, board);
-
-            if (noShip && noBorder) setStyleAllowed(true, cords, board);
-            else setStyleAllowed(false, cords, board);
-          } else setStyleAllowed(false, cords, board);
           break;
         case "y":
+          for (let i = fieldOb.id[0]; i < fieldOb.id[0] + shipLen; i++) {
+            cords[0].push(i);
+            cords[1].push(fieldOb.id[1]);
+          }
           break;
       }
+      let noBorder: boolean = checkIfNoBorder(cords, board);
+      if (noBorder) {
+        let noShip: boolean = checkIfNoShip(cords, board);
+
+        if (noShip && noBorder) setStyleAllowed(true, cords, board);
+        else setStyleAllowed(false, cords, board);
+      } else setStyleAllowed(false, cords, board);
     }
   });
   //clear
   fieldOb.field.addEventListener("mouseout", () => {
     if (board.shipPlaceing) {
-      switch (board.player.direction) {
-        case "x":
-          clearStyle(cords, board);
-          cords = [[], []];
-          break;
-        case "y":
-          break;
-      }
+      clearStyle(cords, board);
+      cords = [[], []];
     }
   });
 }
@@ -112,20 +111,31 @@ function setShipListner(fieldObj: Field, Board: GameBoard) {
 function saveShipPos(fieldObj: Field, Board: GameBoard) {
   let idRow = fieldObj.id[0];
   let idCol = fieldObj.id[1];
+
+  let shipChoosen!: Ship;
+  Board.player.ships.forEach((ship) => {
+    if (ship.id === Board.player.selectedShip) {
+      shipChoosen = ship;
+    }
+  });
+
   switch (Board.player.direction) {
     case "x":
-      Board.player.ships.forEach((ship) => {
-        if (ship.id === Board.player.selectedShip) {
-          for (let i = idCol; i < idCol + ship.getLen(); i++) {
-            ship.cords[0].push(idRow);
-            ship.cords[1].push(i);
-            Board.fields[idRow][i].ship = true;
-            Board.fields[idRow][i].field.className = `field grey not-allowed`;
-          }
-        }
-      });
+      for (let i = idCol; i < idCol + shipChoosen.getLen(); i++) {
+        shipChoosen.cords[0].push(idRow);
+        shipChoosen.cords[1].push(i);
+        Board.fields[idRow][i].ship = true;
+        Board.fields[idRow][i].field.className = `field grey not-allowed`;
+      }
+
       break;
     case "y":
+      for (let i = idRow; i < idRow + shipChoosen.getLen(); i++) {
+        shipChoosen.cords[0].push(i);
+        shipChoosen.cords[1].push(idCol);
+        Board.fields[i][idCol].ship = true;
+        Board.fields[i][idCol].field.className = `field grey not-allowed`;
+      }
       break;
   }
 }

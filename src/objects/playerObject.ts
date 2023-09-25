@@ -14,7 +14,7 @@ function createPlayer(name: string): Player {
     ships: [],
     score: 0,
     selectedShip: -1,
-    direction: "x",
+    direction: "y",
   };
   getShips(player);
 
